@@ -181,6 +181,9 @@ const melicheck = (meli) => {
   }
 }
 
+function containsNumbers(str) {
+  return /\d/.test(str);
+}
 
 
 
@@ -195,9 +198,20 @@ addbtn.addEventListener('click',()=>{
   const editcheckbox =   getElement('.form-edit-checkbox');      const statuse = editcheckbox.checked;
 
 
+
    
   if(namee== "" || lastnamee=="" || ide=="" || idmelie==""){
     alert("There Was No Input");
+    return;
+  }
+
+  if(containsNumbers(namee)){
+    alert("There are numbers in name input");
+    return;
+  }
+
+  if(containsNumbers(lastnamee)){
+    alert("There are numbers in last name input");
     return;
   }
 
