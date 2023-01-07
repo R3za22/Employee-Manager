@@ -194,13 +194,19 @@ addbtn.addEventListener('click',()=>{
   const editgroup =   getElement('.form-edit-group');            const groupe = editgroup.value;
   const editcheckbox =   getElement('.form-edit-checkbox');      const statuse = editcheckbox.checked;
 
+
+   
+  if(namee== "" || lastnamee=="" || ide=="" || idmelie==""){
+    alert("there was no input");
+    return;
+  }
+
   if(!melicheck(idmelie)){
-    alert("Code Meli kirieh");
+    alert("Code Meli is Wrong");
     return;
   }
   
-
-
+  
 
   if(!addbtn.classList.contains("edit-mode"))
   { 
