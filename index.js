@@ -131,17 +131,74 @@ const getElements = (selection) => {
 
 let editedemployee ;
 const addbtn = getElement('.add-btn');
+
+
+
+const melicheck = (meli) => {
+
+  const idmeliarray = meli.split('');
+
+
+  if (!idmeliarray.length==10){
+    return false
+  }  
+
+  let revcount = 11
+  let result = 0;
+  const control = idmeliarray[9];
+  idmeliarray.map((e)=>{
+    revcount--;
+    if(revcount>1)
+      result += e*revcount;
+  })
+
+  const leftover = result%11;
+
+  if(leftover < 2)
+  {
+    if(leftover == control)
+    {
+      console.log("winners winning wins")
+      return true;
+    }
+    else
+    {
+      console.log("weeee LOOOOSSST ZZOOOLLLOOOOOLLLLL")
+      return false;
+    }
+  }else if(leftover > 2){
+    if(11 - leftover == control)
+    {
+      console.log("winners winning wins")
+      return true;
+    }
+    else
+    {
+      console.log("weeee LOOOOSSST ZZOOOLLLOOOOOLLLLL")
+      return false;
+    }
+
+  }
+}
+
+
+
+
+
 addbtn.addEventListener('click',()=>{
 
   const editname =  getElement('.form-edit-name');               const namee = editname.value;
   const editlastname =  getElement('.form-edit-lastname');       const lastnamee = editlastname.value;
   const editid =  getElement('.form-edit-id');                   const ide = editid.value;
-  const editidmeli=  getElement('.form-edit-meliid');            const idmelie = editidmeli.value;
+  const editidmeli=  getElement('.form-edit-meliid');            const idmelie = editidmeli.value;   //this
   const editgroup =   getElement('.form-edit-group');            const groupe = editgroup.value;
   const editcheckbox =   getElement('.form-edit-checkbox');      const statuse = editcheckbox.checked;
 
-
-
+  if(!melicheck(idmelie)){
+    alert("Code Meli kirieh");
+    return;
+  }
+  
 
 
 
