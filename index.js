@@ -197,7 +197,7 @@ addbtn.addEventListener('click',()=>{
 
    
   if(namee== "" || lastnamee=="" || ide=="" || idmelie==""){
-    alert("there was no input");
+    alert("There Was No Input");
     return;
   }
 
